@@ -4,12 +4,12 @@ In today's era of wearable computing, companies like Nike, Fitbit, and Jawbone U
 
 This repository contains 3 files: 
 
-- `run_analysis.R`: This script goes through the entire data cleaning pipeline, from downloading and unzipping the datasets from their http(s) sources and cleans them for easier readability and downstream analysis. Specifically, the script runs through the followinf processes:
+- `run_analysis.R`: This script goes through the entire data cleaning pipeline, from downloading and unzipping the datasets from their http(s) sources and cleans them for easier readability and downstream analysis. Specifically, the script runs through the following processes:
 
-  1) Merges the training and the test sets to create one data set.
-  2) Extracts only the measurements on the mean and standard deviation for each measurement.
-  3) Uses descriptive activity names to name the activities in the data set
-  4) Appropriately labels the data set with descriptive variable names.
+  1) Downloads and reads in the data from http source.
+  2) Merges the training and the test sets to create one data set.
+  3) Extracts only the measurements on the mean and standard deviation for each measurement.
+  4) Uses descriptive activity names to name the activities in the data set and appropriately labels the data set with descriptive variable names.
   5) From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 - `final_data.txt`: The end result of running `run_analysis.R`; a second, independent tidy data set with the average of each variable for each activity and each subject.
