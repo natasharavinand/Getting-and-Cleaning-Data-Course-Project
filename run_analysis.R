@@ -25,7 +25,7 @@ y <- rbind(y_test, y_train)
 subject <- rbind(subject_test, subject_train)
 mdf <- cbind(subject, x, y)
 
-tidy_df <- mdf %>% select(subject, class_labels, contains("mean"), contains("sd"))
+tidy_df <- mdf %>% select(subject, class_labels, contains("mean"), contains("std"))
 
 tidy_df$class_labels <- activities[tidy_df$class_labels, 2]
 
@@ -36,13 +36,14 @@ colnames(tidy_df) <- gsub("tBody", "TimeBody", colnames(tidy_df))
 colnames(tidy_df) <- gsub("BodyBody", "Body", colnames(tidy_df))
 colnames(tidy_df) <- gsub("Mag", "Magnitude", colnames(tidy_df))
 colnames(tidy_df) <- gsub("angle", "Angle", colnames(tidy_df))
-colnames(tidy_df) <- gsub("Freq", "Frequency", colnames(tidy_df))
 colnames(tidy_df) <- gsub("gravity", "Gravity", colnames(tidy_df))
 colnames(tidy_df) <- gsub("^t", "Time", colnames(tidy_df))
-colnames(tidy_df) <- gsub("^f", "Frequency", colnames(tidy_df))
 colnames(tidy_df)<-gsub("\\.", "", colnames(tidy_df))
-colnames(tidy_df)<-gsub("std", "STD", colnames(tidy_df))
+colnames(tidy_df)<-gsub("std", "StandardDeviation", colnames(tidy_df))
 colnames(tidy_df)<-gsub("mean", "Mean", colnames(tidy_df))
+colnames(tidy_df)<-gsub("freq", "Frequency", colnames(tidy_df), ignore.case = T)
+colnames(tidy_df)<-gsub("^f", "Frequency", colnames(tidy_df))
+
 
 final_data <- tidy_df %>% 
   group_by(subject, activity) %>% 
